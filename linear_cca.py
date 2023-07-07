@@ -10,8 +10,8 @@ def total_correlation(X1, X2, k):
     mean1 = numpy.mean(X1, axis=0)
     mean2 = numpy.mean(X2, axis=0)
 
-    H1bar = X - numpy.tile(mean1, (m, 1))
-    H2bar = Y - numpy.tile(mean2, (m, 1))
+    H1bar = X1 - numpy.tile(mean1, (m, 1))
+    H2bar = X2 - numpy.tile(mean2, (m, 1))
 
 
     SigmaHat12 = (1.0 / (m - 1)) * numpy.dot(H1bar.T, H2bar)
@@ -36,4 +36,4 @@ def total_correlation(X1, X2, k):
 
     total_corr = numpy.sum(D)
 
-    return Astar, total_corr, singular_values, Bstar
+    return Astar, total_corr, Bstar
